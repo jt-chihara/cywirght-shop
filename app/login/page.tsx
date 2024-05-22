@@ -1,10 +1,11 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Header from '../../component/Header';
+import SuccessSignupModal from '../../component/SuccessModal';
 
 interface IFormInputs {
   username: string;
@@ -17,18 +18,32 @@ const schema = yup.object().shape({
 });
 
 const LoginPage: React.FC = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   const { register, handleSubmit, formState: { errors } } = useForm<IFormInputs>({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<IFormInputs> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<IFormInputs> = data => {
+    setShowModal(true);
   };
 
   return (
     <div>
         <Header/>
         <title>Cywirght shop</title>
+        {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
+          <SuccessSignupModal
+          title="ログイン成功"
+          message="ログインに成功しました。"
+          onClose={handleCloseModal} />
+        </div>
+      )}
         <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="bg-gray-800 p-8 rounded shadow-md w-full max-w-md">
             <h2 className="text-2xl font-bold mb-6 text-center text-white">ログイン</h2>

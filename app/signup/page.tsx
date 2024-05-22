@@ -5,7 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Header from '../../component/Header';
-import SuccessSignupModal from '../../component/SuccessSignupModal';
+import SuccessSignupModal from '../../component/SuccessModal';
 
 const schema = yup.object().shape({
   username: yup.string().required('ユーザー名は必須です'),
@@ -40,7 +40,10 @@ const SignupPage: React.FC = () => {
       <title>Cywirght shop</title>
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
-          <SuccessSignupModal onClose={handleCloseModal} />
+          <SuccessSignupModal
+          title="サインアップ成功"
+          message="サインアップが成功しました。"
+          onClose={handleCloseModal} />
         </div>
       )}
       <div className="min-h-screen bg-black flex items-center justify-center">
