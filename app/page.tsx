@@ -1,10 +1,30 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import Header from '../component/Header';
+import SuccessModal from '../component/SuccessModal';
 
 const App: React.FC = () => {
+  const [showPurchaseModal, setShowPurchaseModal] = useState(false);
+
+  const handlePurchaseClick = () => {
+    setShowPurchaseModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowPurchaseModal(false);
+  };
+
   return (
     <div>
       <title>Cywirght shop</title>
+      {showPurchaseModal && (
+        <SuccessModal
+          title="購入成功"
+          message="購入しました。"
+          onClose={handleCloseModal}
+        />
+      )}
       <Header />
         <div className="container mx-auto px-4 py-8">
           <h1 className="text-4xl font-bold text-center mb-8">Welcome to Cywirght shop!</h1>
@@ -19,7 +39,7 @@ const App: React.FC = () => {
                 <p className="text-gray-700">美味しいりんご</p>
                 <div className="mt-4 flex justify-between items-center">
                   <span className="text-xl font-bold text-gray-800">300円</span>
-                  <button className="px-4 py-2 bg-blue-500 text-white font-semibold rounded">購入</button>
+                  <button className="px-4 py-2 bg-blue-500 text-white font-semibold rounded" onClick={handlePurchaseClick}>購入</button>
                 </div>
               </div>
             </div>
@@ -30,10 +50,10 @@ const App: React.FC = () => {
               </div>
               <div className="p-4">
                 <h2 className="text-xl font-semibold mb-2 text-gray-800">apple</h2>
-                <p className="text-gray-700">美味しい</p>
+                <p className="text-gray-700">美味しいりんご</p>
                 <div className="mt-4 flex justify-between items-center">
                   <span className="text-xl font-bold text-gray-800">300円</span>
-                  <button className="px-4 py-2 bg-blue-500 text-white font-semibold rounded">購入</button>
+                  <button className="px-4 py-2 bg-blue-500 text-white font-semibold rounded" onClick={handlePurchaseClick}>購入</button>
                 </div>
               </div>
             </div>
@@ -47,7 +67,7 @@ const App: React.FC = () => {
                 <p className="text-gray-700">美味しいりんご</p>
                 <div className="mt-4 flex justify-between items-center">
                   <span className="text-xl font-bold text-gray-800">300円</span>
-                  <button className="px-4 py-2 bg-blue-500 text-white font-semibold rounded">購入</button>
+                  <button className="px-4 py-2 bg-blue-500 text-white font-semibold rounded" onClick={handlePurchaseClick}>購入</button>
                 </div>
               </div>
             </div>
@@ -62,7 +82,7 @@ const App: React.FC = () => {
                 <p className="text-gray-700">美味しいりんご</p>
                 <div className="mt-4 flex justify-between items-center">
                   <span className="text-xl font-bold text-gray-800">300円</span>
-                  <button className="px-4 py-2 bg-blue-500 text-white font-semibold rounded">購入</button>
+                  <button className="px-4 py-2 bg-blue-500 text-white font-semibold rounded" onClick={handlePurchaseClick}>購入</button>
                 </div>
               </div>
             </div>
@@ -77,7 +97,7 @@ const App: React.FC = () => {
                 <p className="text-gray-700">美味しいりんご</p>
                 <div className="mt-4 flex justify-between items-center">
                   <span className="text-xl font-bold text-gray-800">300円</span>
-                  <button className="px-4 py-2 bg-blue-500 text-white font-semibold rounded">購入</button>
+                  <button className="px-4 py-2 bg-blue-500 text-white font-semibold rounded" onClick={handlePurchaseClick}>購入</button>
                 </div>
               </div>
             </div>
@@ -91,7 +111,7 @@ const App: React.FC = () => {
                 <p className="text-gray-700">美味しいりんご</p>
                 <div className="mt-4 flex justify-between items-center">
                   <span className="text-xl font-bold text-gray-800">300円</span>
-                  <button className="px-4 py-2 bg-blue-500 text-white font-semibold rounded">購入</button>
+                  <button className="px-4 py-2 bg-blue-500 text-white font-semibold rounded" onClick={handlePurchaseClick}>購入</button>
                 </div>
               </div>
             </div>
