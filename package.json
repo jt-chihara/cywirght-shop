@@ -17,7 +17,7 @@
     "yup": "^1.7.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.45.2",
+    "@playwright/test": "^1.55.0",
     "@types/node": "^24",
     "@types/react": "^18",
     "eslint": "^9",
